@@ -8,8 +8,18 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['cms.wyomingchemical.com'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'cms.wyomingchemical.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cms.wyomingchemical.com',
+      },
+    ],
   },
+  output: 'standalone',
 };
 
 module.exports = nextConfig;

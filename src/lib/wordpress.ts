@@ -54,37 +54,41 @@ export interface BlogPost {
 
 const API_BASE_URL = 'http://cms.wyomingchemical.com/wp-json/wp/v2';
 
+// Production-ready fetch with retry logic
+async function fetchWithRetry(url: string, options: RequestInit, retries = 3): Promise<Response> {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) return response;
+      if (i === retries - 1) return response;
+    } catch (error) {
+      if (i === retries - 1) throw error;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+    }
+  }
+  throw new Error('Max retries reached');
+}
+
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
-    console.log('Fetching from:', `${API_BASE_URL}/posts?_embed&per_page=20&status=publish`);
-    
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-    
-    const response = await fetch(`${API_BASE_URL}/posts?_embed&per_page=20&status=publish`, {
+    const response = await fetchWithRetry(`${API_BASE_URL}/posts?_embed&per_page=20&status=publish`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'Wyoming-Chemicals-Next-App/1.0',
       },
-      signal: controller.signal,
-      cache: 'no-store'
+      next: { revalidate: 300 }, // 5 minutes cache
     });
     
-    clearTimeout(timeoutId);
-    console.log('Response status:', response.status);
-    
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error(`WordPress API error: ${response.status} ${response.statusText}`, errorText);
+      console.error(`WordPress API error: ${response.status}`);
       return [];
     }
     
     const posts: WordPressPost[] = await response.json();
-    console.log('Fetched posts count:', posts.length);
     
     if (!Array.isArray(posts)) {
-      console.error('Invalid response format from WordPress API');
+      console.error('Invalid response format');
       return [];
     }
     
@@ -97,32 +101,23 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
 
 export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
   try {
-    console.log('Fetching post:', slug);
-    
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
-    
-    const response = await fetch(`${API_BASE_URL}/posts?slug=${encodeURIComponent(slug)}&_embed&status=publish`, {
+    const response = await fetchWithRetry(`${API_BASE_URL}/posts?slug=${encodeURIComponent(slug)}&_embed&status=publish`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'Wyoming-Chemicals-Next-App/1.0',
       },
-      signal: controller.signal,
-      cache: 'no-store'
+      next: { revalidate: 300 }, // 5 minutes cache
     });
     
-    clearTimeout(timeoutId);
-    
     if (!response.ok) {
-      console.error(`WordPress API error: ${response.status} ${response.statusText}`);
+      console.error(`WordPress API error: ${response.status}`);
       return null;
     }
     
     const posts: WordPressPost[] = await response.json();
     
     if (!Array.isArray(posts) || posts.length === 0) {
-      console.log('No post found with slug:', slug);
       return null;
     }
     

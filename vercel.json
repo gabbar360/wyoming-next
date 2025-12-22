@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "wyoming-chemicals-distribution",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "WORDPRESS_API_URL": "http://cms.wyomingchemical.com/wp-json/wp/v2"
+  }
+}
