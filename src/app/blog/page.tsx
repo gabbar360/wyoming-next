@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, Calendar, User, Clock } from "lucide-react";
 import { fetchBlogPosts } from "@/lib/wordpress";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Blog & Insights | Wyoming Chemicals Distribution",
@@ -113,10 +114,12 @@ export default async function Blog() {
                 <article key={post.id} className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group">
                   <div className="aspect-video bg-primary/10 relative">
                     {post.featuredImage ? (
-                      <img 
+                      <Image 
                         src={post.featuredImage} 
                         alt={post.featuredImageAlt || post.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
