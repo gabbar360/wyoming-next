@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export interface WordPressPost {
   id: number;
   date: string;
@@ -56,31 +58,22 @@ const API_BASE_URL = 'http://cms.wyomingchemical.com/wp-json/wp/v2';
 
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
-    console.log('Fetching from:', `${API_BASE_URL}/posts?_embed&per_page=20&status=publish`);
+    console.log('Fetching from:', `${API_BASE_URL}/posts`);
     
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-    
-    const response = await fetch(`${API_BASE_URL}/posts?_embed&per_page=20&status=publish`, {
-      method: 'GET',
+    const response = await axios.get(`${API_BASE_URL}/posts`, {
+      params: {
+        _embed: true,
+        per_page: 20,
+        status: 'publish'
+      },
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'Wyoming-Chemicals-Next-App/1.0',
       },
-      signal: controller.signal,
-      cache: 'no-store'
+      timeout: 5000
     });
     
-    clearTimeout(timeoutId);
-    console.log('Response status:', response.status);
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error(`WordPress API error: ${response.status} ${response.statusText}`, errorText);
-      return [];
-    }
-    
-    const posts: WordPressPost[] = await response.json();
+    const posts: WordPressPost[] = response.data;
     console.log('Fetched posts count:', posts.length);
     
     if (!Array.isArray(posts)) {
@@ -90,7 +83,7 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
     
     return posts.map(transformWordPressPost).filter(Boolean);
   } catch (error) {
-    console.error('Error fetching blog posts:', error);
+    console.error('WordPress API unavailable:', error.message);
     return [];
   }
 }
@@ -99,27 +92,20 @@ export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
   try {
     console.log('Fetching post:', slug);
     
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
-    
-    const response = await fetch(`${API_BASE_URL}/posts?slug=${encodeURIComponent(slug)}&_embed&status=publish`, {
-      method: 'GET',
+    const response = await axios.get(`${API_BASE_URL}/posts`, {
+      params: {
+        slug: slug,
+        _embed: true,
+        status: 'publish'
+      },
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'Wyoming-Chemicals-Next-App/1.0',
       },
-      signal: controller.signal,
-      cache: 'no-store'
+      timeout: 5000
     });
     
-    clearTimeout(timeoutId);
-    
-    if (!response.ok) {
-      console.error(`WordPress API error: ${response.status} ${response.statusText}`);
-      return null;
-    }
-    
-    const posts: WordPressPost[] = await response.json();
+    const posts: WordPressPost[] = response.data;
     
     if (!Array.isArray(posts) || posts.length === 0) {
       console.log('No post found with slug:', slug);
@@ -128,7 +114,7 @@ export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
     
     return transformWordPressPost(posts[0]);
   } catch (error) {
-    console.error('Error fetching blog post:', error);
+    console.error('WordPress API unavailable:', error.message);
     return null;
   }
 }
@@ -146,9 +132,15 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
     
     // Get featured image
     const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
-    const featuredImage = featuredMedia?.media_details?.sizes?.large?.source_url || 
-                         featuredMedia?.media_details?.sizes?.medium?.source_url || 
-                         featuredMedia?.source_url;
+    let featuredImage = featuredMedia?.media_details?.sizes?.large?.source_url || 
+                       featuredMedia?.media_details?.sizes?.medium?.source_url || 
+                       featuredMedia?.source_url;
+    
+    // Fix image URL if it's relative
+    if (featuredImage && !featuredImage.startsWith('http')) {
+      featuredImage = `http://cms.wyomingchemical.com${featuredImage}`;
+    }
+    
     const featuredImageAlt = featuredMedia?.alt_text || post.title?.rendered || '';
     
     // Calculate read time (rough estimate: 200 words per minute)
