@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { fetchBlogPost, fetchBlogPosts } from "@/lib/wordpress";
 import { ArrowRight, ArrowLeft, Calendar, User, Clock, Tag } from "lucide-react";
 import { Metadata } from "next";
-import Image from "next/image";
 
 export async function generateMetadata({ params }: { params: Promise<{ blogId: string }> }): Promise<Metadata> {
   const { blogId } = await params;
@@ -80,13 +79,11 @@ export default async function BlogDetail({ params }: { params: Promise<{ blogId:
             <div className="max-w-4xl mx-auto">
               {/* Featured Image */}
               {post.featuredImage && (
-                <div className="mb-8 rounded-2xl overflow-hidden relative h-64 md:h-96">
-                  <Image 
+                <div className="mb-8 rounded-2xl overflow-hidden">
+                  <img 
                     src={post.featuredImage} 
                     alt={post.featuredImageAlt || post.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 1200px"
+                    className="w-full h-64 md:h-96 object-cover"
                   />
                 </div>
               )}
@@ -173,12 +170,10 @@ export default async function BlogDetail({ params }: { params: Promise<{ blogId:
                 >
                   <div className="aspect-video bg-primary/10 relative">
                     {relatedPost.featuredImage ? (
-                      <Image 
+                      <img 
                         src={relatedPost.featuredImage} 
                         alt={relatedPost.featuredImageAlt || relatedPost.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="w-full h-full object-cover"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
