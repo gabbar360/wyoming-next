@@ -34,12 +34,12 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Our Location",
-      details: ["Opposite CNG Pump, Jetpar Road,", "Bela Village, Morbi - 363642,", "Gujarat, India"]
+      details: ["WYOMING CHEMICAL DISTRIBUTION LLC", "30 N Gould St, STE R,", "Sheridan, WY 82801"]
     },
     {
       icon: Phone,
       title: "Phone Numbers",
-      details: ["Domestic: +91 98252 18329", "International: +91 97127 96836"]
+      details: [" + 1 307 3339122"]
     },
     {
       icon: Mail,
@@ -181,7 +181,7 @@ export default function Contact() {
               {/* Map */}
               <div className="bg-background rounded-2xl overflow-hidden shadow-sm">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.6891894851144!2d70.8357!3d22.8167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQ5JzAwLjEiTiA3MMKwNTAnMDguNSJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.8!2d-106.9561!3d44.7966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc1b2bb7e5%3A0x3a3b3c3d3e3f4041!2s30%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: "500px" }}
