@@ -5,8 +5,6 @@ import AboutSection from "@/components/AboutSection";
 import ProductsSection from "@/components/ProductsSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import PartnersSection from "@/components/PartnersSection";
-import QuoteSection from "@/components/QuoteSection";
-import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,9 +18,7 @@ export default function Home() {
         <ProductsSection />
         <WhyChooseSection />
         <PartnersSection />
-        <QuoteSection />
       </main>
-      <NewsletterSection />
       <Footer />
     </div>
   );

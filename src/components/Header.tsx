@@ -105,8 +105,8 @@ const Header = () => {
                 >
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1 hover:text-primary transition-colors font-medium py-2 px-2 text-sm ${
-                      pathname === item.href ? "text-primary" : ((isScrolled || pathname !== '/') ? "text-foreground" : "text-white")
+                    className={`flex items-center gap-1 transition-colors font-medium py-2 px-2 text-sm ${
+                      pathname === item.href ? "text-primary" : ((isScrolled || pathname !== '/') ? "text-[#8B4513]" : "text-white")
                     }`}
                   >
                     {item.name}
@@ -140,8 +140,8 @@ const Header = () => {
                 >
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1 hover:text-primary transition-colors font-medium py-2 px-1 text-sm ${
-                      pathname === item.href ? "text-primary" : ((isScrolled || pathname !== '/') ? "text-foreground" : "text-white")
+                    className={`flex items-center gap-1 transition-colors font-medium py-2 px-1 text-sm ${
+                      pathname === item.href ? "text-primary" : ((isScrolled || pathname !== '/') ? "text-[#8B4513]" : "text-[#F5F5DC]")
                     }`}
                   >
                     {item.name}
@@ -196,7 +196,7 @@ const Header = () => {
                 <div key={item.name} className="border-b border-border last:border-0">
                   <Link
                     href={item.href}
-                    className="flex items-center justify-between py-3 text-foreground hover:text-primary transition-colors font-medium"
+                    className="flex items-center justify-between py-3 text-[#F5F5DC] transition-colors font-medium"
                     onClick={() => !item.dropdown && setIsMenuOpen(false)}
                   >
                     {item.name}

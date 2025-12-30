@@ -30,7 +30,14 @@ export default function Products() {
         />
 
         {/* Products Introduction */}
-        <section className="section-padding relative">
+        <section 
+          className="section-padding relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Our Products</span>
@@ -45,7 +52,14 @@ export default function Products() {
         </section>
 
         {/* Products Grid */}
-        <section className="section-padding relative">
+        <section 
+          className="section-padding relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {products.map((product) => {

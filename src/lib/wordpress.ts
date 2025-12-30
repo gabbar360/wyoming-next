@@ -54,7 +54,8 @@ export interface BlogPost {
   featuredImageAlt?: string;
 }
 
-const API_BASE_URL = 'http://cms.wyomingchemical.com/wp-json/wp/v2';
+const API_BASE_URL = process.env.WORDPRESS_API_URL || 'http://cms.wyomingchemical.com/wp-json/wp/v2';
+const WORDPRESS_BASE_URL = process.env.WORDPRESS_BASE_URL || 'http://cms.wyomingchemical.com';
 
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
@@ -130,15 +131,22 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
     const category = categories.find(term => term.taxonomy === 'category')?.name || 'Industry Insights';
     const postTags = tags.filter(term => term.taxonomy === 'post_tag').map(tag => tag.name);
     
-    // Get featured image
+    // Get featured image with better URL handling
     const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
     let featuredImage = featuredMedia?.media_details?.sizes?.large?.source_url || 
                        featuredMedia?.media_details?.sizes?.medium?.source_url || 
                        featuredMedia?.source_url;
     
-    // Fix image URL if it's relative
-    if (featuredImage && !featuredImage.startsWith('http')) {
-      featuredImage = `http://cms.wyomingchemical.com${featuredImage}`;
+    // Ensure proper URL format
+    if (featuredImage) {
+      // If URL is relative, make it absolute
+      if (!featuredImage.startsWith('http')) {
+        featuredImage = `${WORDPRESS_BASE_URL}${featuredImage.startsWith('/') ? '' : '/'}${featuredImage}`;
+      }
+      // Replace http with https if needed for production
+      if (process.env.NODE_ENV === 'production' && featuredImage.startsWith('http://')) {
+        featuredImage = featuredImage.replace('http://', 'https://');
+      }
     }
     
     const featuredImageAlt = featuredMedia?.alt_text || post.title?.rendered || '';
@@ -158,11 +166,28 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
     // Clean excerpt
     const cleanExcerpt = post.excerpt?.rendered?.replace(/<[^>]*>/g, '').replace(/\[&hellip;\]/, '...').trim() || '';
     
+    // Fix content images URLs
+    let cleanContent = post.content?.rendered || '';
+    if (cleanContent) {
+      // Fix relative image URLs in content
+      cleanContent = cleanContent.replace(
+        /src="(?!\/\/|http)([^"]*)"/g,
+        `src="${WORDPRESS_BASE_URL}$1"`
+      );
+      // Replace http with https for production
+      if (process.env.NODE_ENV === 'production') {
+        cleanContent = cleanContent.replace(
+          new RegExp(`src="${WORDPRESS_BASE_URL.replace('http://', 'http:\\/\\/')}`,'g'),
+          `src="${WORDPRESS_BASE_URL.replace('http://', 'https://')}`
+        );
+      }
+    }
+    
     return {
       id: post.slug,
       title: post.title?.rendered || 'Untitled',
       excerpt: cleanExcerpt,
-      content: post.content?.rendered || '',
+      content: cleanContent,
       author,
       date: formattedDate,
       readTime: `${readTime} min read`,
