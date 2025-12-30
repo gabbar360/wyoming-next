@@ -177,52 +177,54 @@ export default function SodiumSilicateGlassPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-8">Chemical Identifiers</h2>
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-primary text-white">
-                  <th className="p-4 text-left">Parameter</th>
-                  <th className="p-4 text-left">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">Chemical Name</td>
-                  <td className="p-4">Sodium Silicate Glass</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">CAS No</td>
-                  <td className="p-4">1344-09-8, 1069885</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">Chemical Formula</td>
-                  <td className="p-4">Na₂O·SiO₃</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">EINECS Number</td>
-                  <td className="p-4">231-130-8</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">HSN Code</td>
-                  <td className="p-4">28391900</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">MDL Number</td>
-                  <td className="p-4">MFCD00003492</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">IUPAC Name</td>
-                  <td className="p-4">Disodium; dioxido(oxo)silane</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50">SMILES</td>
-                  <td className="p-4">[O-][Si](=O)[O-].[Na+].[Na+]</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50">Transport Information</td>
-                  <td className="p-4">NONH for all modes of transport</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[600px]">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="p-4 text-left">Parameter</th>
+                    <th className="p-4 text-left">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">Chemical Name</td>
+                    <td className="p-4">Sodium Silicate Glass</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">CAS No</td>
+                    <td className="p-4">1344-09-8, 1069885</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">Chemical Formula</td>
+                    <td className="p-4">Na₂O·SiO₃</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">EINECS Number</td>
+                    <td className="p-4">231-130-8</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">HSN Code</td>
+                    <td className="p-4">28391900</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">MDL Number</td>
+                    <td className="p-4">MFCD00003492</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">IUPAC Name</td>
+                    <td className="p-4">Disodium; dioxido(oxo)silane</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50">SMILES</td>
+                    <td className="p-4">[O-][Si](=O)[O-].[Na+].[Na+]</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium bg-gray-50">Transport Information</td>
+                    <td className="p-4">NONH for all modes of transport</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -239,32 +241,34 @@ export default function SodiumSilicateGlassPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-8">Synonyms</h2>
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-primary text-white">
-                  <th className="p-4 text-left">Sr. No.</th>
-                  <th className="p-4 text-left">Synonym Names</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">1</td>
-                  <td className="p-4">Sodium Disilicate Glass, Sodium Trisilicate Glass, Sodium water Glass</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">2</td>
-                  <td className="p-4">Silicic Acid Sodium Salt, Sodium Siliconate, Hydrous Sodium Silicate Sodium Silicate, Disodium Oxosilanediol</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">3</td>
-                  <td className="p-4">Sodium Polysilicate, Sodium Sesquisilicate</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50 text-center">4</td>
-                  <td className="p-4">Disodium Metasilicate Disodium Silicate, Sodium Silicon Oxide, Disodium Monosilicate Hydrate, Sodium Oxosilanediolate, Sodium Siliconate</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[500px]">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="p-4 text-left">Sr. No.</th>
+                    <th className="p-4 text-left">Synonym Names</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">1</td>
+                    <td className="p-4">Sodium Disilicate Glass, Sodium Trisilicate Glass, Sodium water Glass</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">2</td>
+                    <td className="p-4">Silicic Acid Sodium Salt, Sodium Siliconate, Hydrous Sodium Silicate Sodium Silicate, Disodium Oxosilanediol</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">3</td>
+                    <td className="p-4">Sodium Polysilicate, Sodium Sesquisilicate</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium bg-gray-50 text-center">4</td>
+                    <td className="p-4">Disodium Metasilicate Disodium Silicate, Sodium Silicon Oxide, Disodium Monosilicate Hydrate, Sodium Oxosilanediolate, Sodium Siliconate</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -281,75 +285,77 @@ export default function SodiumSilicateGlassPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-8">Sodium Silicate Glass (Lumps/Cullet) Properties - Low Modulus</h2>
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-primary text-white">
-                  <th className="p-4 text-left">Parameter</th>
-                  <th className="p-4 text-center">Unit</th>
-                  <th className="p-4 text-center">I (Alkaline)</th>
-                  <th className="p-4 text-center">II (Alkaline)</th>
-                  <th className="p-4 text-center">III (Alkaline)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">Appearance</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">Clear Lumps with light blue color</td>
-                  <td className="p-4 text-center">Clear Lumps with light blue color</td>
-                  <td className="p-4 text-center">Clear Lumps with light blue color</td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="p-4 font-medium">Weight Ratio</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">2.20 ± 0.10</td>
-                  <td className="p-4 text-center">2.30 ± 0.10</td>
-                  <td className="p-4 text-center">1.55 ± 0.10</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">Molar Ratio</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">2.27 ± 0.10</td>
-                  <td className="p-4 text-center">2.37 ± 0.10</td>
-                  <td className="p-4 text-center">1.60 ± 0.10</td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="p-4 font-medium">Na₂O Content</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">29 - 31</td>
-                  <td className="p-4 text-center">29 - 30</td>
-                  <td className="p-4 text-center">38 - 40</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">SiO₂ Content</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">66 - 70</td>
-                  <td className="p-4 text-center">68 - 70</td>
-                  <td className="p-4 text-center">60 - 62</td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="p-4 font-medium">Total Dissolved Solid</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">99.5 Min</td>
-                  <td className="p-4 text-center">99.5 Min</td>
-                  <td className="p-4 text-center">99.5 Min</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">pH</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">11 - 12</td>
-                  <td className="p-4 text-center">11 - 12</td>
-                  <td className="p-4 text-center">11 - 12</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium">Insoluble</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">0.5 Max</td>
-                  <td className="p-4 text-center">0.5 Max</td>
-                  <td className="p-4 text-center">0.5 Max</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[800px]">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="p-4 text-left">Parameter</th>
+                    <th className="p-4 text-center">Unit</th>
+                    <th className="p-4 text-center">I (Alkaline)</th>
+                    <th className="p-4 text-center">II (Alkaline)</th>
+                    <th className="p-4 text-center">III (Alkaline)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">Appearance</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">Clear Lumps with light blue color</td>
+                    <td className="p-4 text-center">Clear Lumps with light blue color</td>
+                    <td className="p-4 text-center">Clear Lumps with light blue color</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4 font-medium">Weight Ratio</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">2.20 ± 0.10</td>
+                    <td className="p-4 text-center">2.30 ± 0.10</td>
+                    <td className="p-4 text-center">1.55 ± 0.10</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">Molar Ratio</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">2.27 ± 0.10</td>
+                    <td className="p-4 text-center">2.37 ± 0.10</td>
+                    <td className="p-4 text-center">1.60 ± 0.10</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4 font-medium">Na₂O Content</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">29 - 31</td>
+                    <td className="p-4 text-center">29 - 30</td>
+                    <td className="p-4 text-center">38 - 40</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">SiO₂ Content</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">66 - 70</td>
+                    <td className="p-4 text-center">68 - 70</td>
+                    <td className="p-4 text-center">60 - 62</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4 font-medium">Total Dissolved Solid</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">99.5 Min</td>
+                    <td className="p-4 text-center">99.5 Min</td>
+                    <td className="p-4 text-center">99.5 Min</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">pH</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">11 - 12</td>
+                    <td className="p-4 text-center">11 - 12</td>
+                    <td className="p-4 text-center">11 - 12</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium">Insoluble</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">0.5 Max</td>
+                    <td className="p-4 text-center">0.5 Max</td>
+                    <td className="p-4 text-center">0.5 Max</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -366,66 +372,68 @@ export default function SodiumSilicateGlassPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-8">Sodium Silicate Glass (Lumps/Cullet) Properties - High Modulus</h2>
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-primary text-white">
-                  <th className="p-4 text-left">Parameter</th>
-                  <th className="p-4 text-center">Unit</th>
-                  <th className="p-4 text-center">IV (Neutral)</th>
-                  <th className="p-4 text-center">V (Neutral)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">Appearance</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">Clear Lumps with light blue color</td>
-                  <td className="p-4 text-center">Clear Lumps with light blue color</td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="p-4 font-medium">Weight Ratio</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">3.20 ± 0.10</td>
-                  <td className="p-4 text-center">3.30 ± 0.10</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">Molar Ratio</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">3.30 ± 0.10</td>
-                  <td className="p-4 text-center">3.40 ± 0.10</td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="p-4 font-medium">Na₂O Content</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">23.5 - 24.5</td>
-                  <td className="p-4 text-center">22.50 - 23.50</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">SiO₂ Content</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">75.5 - 76.50</td>
-                  <td className="p-4 text-center">76 - 77</td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="p-4 font-medium">Total Dissolved Solid</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">99.00 Min</td>
-                  <td className="p-4 text-center">99.00 Min</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium">pH</td>
-                  <td className="p-4 text-center">-</td>
-                  <td className="p-4 text-center">10 - 11</td>
-                  <td className="p-4 text-center">10 - 11</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium">Insoluble</td>
-                  <td className="p-4 text-center">%</td>
-                  <td className="p-4 text-center">1.0 Max</td>
-                  <td className="p-4 text-center">1.0 Max</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[700px]">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="p-4 text-left">Parameter</th>
+                    <th className="p-4 text-center">Unit</th>
+                    <th className="p-4 text-center">IV (Neutral)</th>
+                    <th className="p-4 text-center">V (Neutral)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">Appearance</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">Clear Lumps with light blue color</td>
+                    <td className="p-4 text-center">Clear Lumps with light blue color</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4 font-medium">Weight Ratio</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">3.20 ± 0.10</td>
+                    <td className="p-4 text-center">3.30 ± 0.10</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">Molar Ratio</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">3.30 ± 0.10</td>
+                    <td className="p-4 text-center">3.40 ± 0.10</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4 font-medium">Na₂O Content</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">23.5 - 24.5</td>
+                    <td className="p-4 text-center">22.50 - 23.50</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">SiO₂ Content</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">75.5 - 76.50</td>
+                    <td className="p-4 text-center">76 - 77</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4 font-medium">Total Dissolved Solid</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">99.00 Min</td>
+                    <td className="p-4 text-center">99.00 Min</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium">pH</td>
+                    <td className="p-4 text-center">-</td>
+                    <td className="p-4 text-center">10 - 11</td>
+                    <td className="p-4 text-center">10 - 11</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium">Insoluble</td>
+                    <td className="p-4 text-center">%</td>
+                    <td className="p-4 text-center">1.0 Max</td>
+                    <td className="p-4 text-center">1.0 Max</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -442,56 +450,58 @@ export default function SodiumSilicateGlassPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-8">Main Applications</h2>
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-primary text-white">
-                  <th className="p-4 text-left">Sr. No.</th>
-                  <th className="p-4 text-left">Application Areas</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">1</td>
-                  <td className="p-4">Used in detergents and cleaning compounds as a builder, dispersant, and processing aid for improved cleaning efficiency.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">2</td>
-                  <td className="p-4">Applied in paperboard production and construction materials as a strengthening, binding, and surface treatment agent.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">3</td>
-                  <td className="p-4">Utilized in ceramics and metal extraction or refining processes for its fluxing, binding, and purifying properties.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">4</td>
-                  <td className="p-4">Used in molding and core making to enhance sand binding strength and dimensional stability.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">5</td>
-                  <td className="p-4">Employed in petroleum production and refining for drilling fluids, catalyst supports, and corrosion control.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">6</td>
-                  <td className="p-4">Applied in pulp and paper processing as a bleaching, coating, and deinking aid.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">7</td>
-                  <td className="p-4">Used in textile manufacturing for fiber treatment, dye fixation, and fabric finishing.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">8</td>
-                  <td className="p-4">Utilized in paints and coatings as a pigment dispersant, binder component, and biocide stabilizer.</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-4 font-medium bg-gray-50 text-center">9</td>
-                  <td className="p-4">Applied in adhesives and glues as a reinforcing and bonding additive.</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium bg-gray-50 text-center">10</td>
-                  <td className="p-4">Used in catalysts, silica gels, detergents, bleaching agents, ore treatments, foundry molds, drilling fluids, waterproof cements, and fireproofing compounds for enhanced stability, strength, and performance.</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[600px]">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="p-4 text-left">Sr. No.</th>
+                    <th className="p-4 text-left">Application Areas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">1</td>
+                    <td className="p-4">Used in detergents and cleaning compounds as a builder, dispersant, and processing aid for improved cleaning efficiency.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">2</td>
+                    <td className="p-4">Applied in paperboard production and construction materials as a strengthening, binding, and surface treatment agent.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">3</td>
+                    <td className="p-4">Utilized in ceramics and metal extraction or refining processes for its fluxing, binding, and purifying properties.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">4</td>
+                    <td className="p-4">Used in molding and core making to enhance sand binding strength and dimensional stability.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">5</td>
+                    <td className="p-4">Employed in petroleum production and refining for drilling fluids, catalyst supports, and corrosion control.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">6</td>
+                    <td className="p-4">Applied in pulp and paper processing as a bleaching, coating, and deinking aid.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">7</td>
+                    <td className="p-4">Used in textile manufacturing for fiber treatment, dye fixation, and fabric finishing.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">8</td>
+                    <td className="p-4">Utilized in paints and coatings as a pigment dispersant, binder component, and biocide stabilizer.</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4 font-medium bg-gray-50 text-center">9</td>
+                    <td className="p-4">Applied in adhesives and glues as a reinforcing and bonding additive.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium bg-gray-50 text-center">10</td>
+                    <td className="p-4">Used in catalysts, silica gels, detergents, bleaching agents, ore treatments, foundry molds, drilling fluids, waterproof cements, and fireproofing compounds for enhanced stability, strength, and performance.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>

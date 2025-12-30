@@ -151,9 +151,10 @@ export default async function Blog() {
                         <User className="w-4 h-4" />
                         {post.author}
                       </div>
-                      <Link href={`/blog/${post.slug}`} className="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                        Read More
-                        <ArrowRight className="w-4 h-4" />
+                      <Link href={`/blog/${post.slug}`} className="text-primary font-medium text-xs sm:text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        <span className="hidden sm:inline">Read More</span>
+                        <span className="sm:hidden">Read</span>
+                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                       </Link>
                     </div>
                   </div>

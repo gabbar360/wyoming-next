@@ -9,22 +9,29 @@ export default function SodiumSilicateLiquidPage() {
       <Header />
       
       {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white section-padding pt-24 sm:pt-28 md:pt-32 lg:pt-36 relative">
+      <section 
+        className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 pt-24 md:pt-32 relative"
+        style={{
+          backgroundImage: 'url("/background-image.png")',
+          backgroundSize: "300px 300px",
+          backgroundRepeat: "repeat",
+        }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <nav className="text-xs sm:text-sm mb-3 sm:mb-4 opacity-90">
+              <nav className="text-sm mb-4 opacity-90">
                 Home → Products → Sodium Silicate Liquid
               </nav>
-              <h1 className="responsive-heading font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Sodium Silicate Liquid
               </h1>
             </div>
-            <div className="flex justify-center lg:justify-end">
-              <div className="bg-white/10 rounded-full p-4 sm:p-6 lg:p-8">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-primary font-bold text-sm sm:text-base lg:text-lg">WCD</span>
+            <div className="flex justify-end">
+              <div className="bg-white/10 rounded-full p-8">
+                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                  <span className="text-primary font-bold text-lg">WCD</span>
                 </div>
               </div>
             </div>
