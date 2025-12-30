@@ -8,6 +8,9 @@ export interface BlogPost {
   readTime: string;
   category: string;
   tags: string[];
+  slug?: string;
+  featuredImage?: string;
+  featuredImageAlt?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -28,7 +31,10 @@ export const blogPosts: BlogPost[] = [
     date: "December 5, 2024",
     readTime: "5 min read",
     category: "Industry Insights",
-    tags: ["Sodium Silicate", "Industrial Applications", "Chemical Industry"]
+    tags: ["Sodium Silicate", "Industrial Applications", "Chemical Industry"],
+    slug: "sodium-silicate-applications",
+    featuredImage: "/blog-images/sodium-silicate-applications.svg",
+    featuredImageAlt: "Sodium Silicate Applications in Modern Industry"
   },
   {
     id: "quality-control-silicate",
@@ -47,7 +53,10 @@ export const blogPosts: BlogPost[] = [
     date: "November 28, 2024",
     readTime: "4 min read",
     category: "Quality",
-    tags: ["Quality Control", "Manufacturing", "ISO Certification"]
+    tags: ["Quality Control", "Manufacturing", "ISO Certification"],
+    slug: "quality-control-silicate",
+    featuredImage: "/blog-images/quality-control.svg",
+    featuredImageAlt: "Quality Control in Silicate Manufacturing"
   },
   {
     id: "silicate-detergent-industry",
@@ -66,7 +75,10 @@ export const blogPosts: BlogPost[] = [
     date: "November 15, 2024",
     readTime: "6 min read",
     category: "Applications",
-    tags: ["Detergent Industry", "Cleaning Products", "Formulation"]
+    tags: ["Detergent Industry", "Cleaning Products", "Formulation"],
+    slug: "silicate-detergent-industry",
+    featuredImage: "/blog-images/detergent-industry.svg",
+    featuredImageAlt: "Silicates in the Detergent Industry"
   }
   // {
   //   id: "sustainable-manufacturing",
