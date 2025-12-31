@@ -193,7 +193,7 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
           console.log(`[Image Debug] Fixed relative URL: ${originalUrl} -> ${featuredImage}`);
         }
         
-        // Convert to HTTPS only in production environment
+        // Replace http with https for production
         if (process.env.NODE_ENV === 'production' && featuredImage.startsWith('http://')) {
           const originalUrl = featuredImage;
           featuredImage = featuredImage.replace('http://', 'https://');
@@ -250,10 +250,10 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
         }
       );
       
-      // Convert HTTP to HTTPS only in production
+      // Replace http with https for production
       if (process.env.NODE_ENV === 'production') {
         cleanContent = cleanContent.replace(
-          /src="http:\/\/[^"]*"/g,
+          new RegExp(`src="${WORDPRESS_BASE_URL.replace('http://', 'http:\\/\\/')}`,'g'),
           (match) => {
             const httpsUrl = match.replace('http://', 'https://');
             console.log(`[Content Images] HTTPS: ${match} -> ${httpsUrl}`);
