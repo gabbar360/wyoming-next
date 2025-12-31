@@ -3,39 +3,38 @@ import Footer from "@/components/Footer";
 import PageBanner from "@/components/PageBanner";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Calendar, User, Clock, FileText, Beaker } from "lucide-react";
+import { ArrowRight, Calendar, User, Clock } from "lucide-react";
 import { fetchBlogPosts } from "@/lib/wordpress";
-import { getImageUrl } from "@/lib/imageHelper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blog & Insights | Wyoming Chemicals Distribution",
-  description:
-    "Stay updated with the latest trends, insights, and developments in the sodium silicate industry. Expert knowledge and industry news from Wyoming Chemicals Distribution.",
-  keywords:
-    "sodium silicate, chemical industry, blog, insights, Wyoming Chemicals, industry news",
+  description: "Stay updated with the latest trends, insights, and developments in the sodium silicate industry. Expert knowledge and industry news from Wyoming Chemicals Distribution.",
+  keywords: "sodium silicate, chemical industry, blog, insights, Wyoming Chemicals, industry news",
   openGraph: {
     title: "Blog & Insights | Wyoming Chemicals Distribution",
-    description:
-      "Industry insights and expert knowledge in sodium silicate and chemical manufacturing.",
+    description: "Industry insights and expert knowledge in sodium silicate and chemical manufacturing.",
     type: "website",
   },
 };
 
 export default async function Blog() {
   const blogPosts = await fetchBlogPosts();
-
+  
   // Fallback message if no posts are available
   if (blogPosts.length === 0) {
     return (
       <div className="min-h-screen">
         <Header />
         <main>
-          <PageBanner
-            title="Blog & Insights"
-            breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
+          <PageBanner 
+            title="Blog & Insights" 
+            breadcrumbs={[
+              { label: "Home", href: "/" },
+              { label: "Blog" }
+            ]} 
           />
-          <section
+          <section 
             className="py-16 relative"
             style={{
               backgroundImage: 'url("/background-image.png")',
@@ -49,8 +48,7 @@ export default async function Blog() {
                   No Blog Posts Available
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  We're currently updating our blog content. Please check back
-                  soon for the latest industry insights and news.
+                  We're currently updating our blog content. Please check back soon for the latest industry insights and news.
                 </p>
                 <Link href="/contact">
                   <Button>
@@ -70,13 +68,16 @@ export default async function Blog() {
     <div className="min-h-screen">
       <Header />
       <main>
-        <PageBanner
-          title="Blog & Insights"
-          breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
+        <PageBanner 
+          title="Blog & Insights" 
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Blog" }
+          ]} 
         />
 
         {/* Blog Introduction */}
-        <section
+        <section 
           className="py-16 relative"
           style={{
             backgroundImage: 'url("/background-image.png")',
@@ -86,23 +87,19 @@ export default async function Blog() {
         >
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="text-primary font-medium uppercase tracking-wider text-sm">
-                Our Blog
-              </span>
+              <span className="text-primary font-medium uppercase tracking-wider text-sm">Our Blog</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
                 Industry News & Insights
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Stay updated with the latest trends, insights, and developments
-                in the sodium silicate industry. Our team shares valuable
-                knowledge and expertise through regular articles.
+                Stay updated with the latest trends, insights, and developments in the sodium silicate industry. Our team shares valuable knowledge and expertise through regular articles.
               </p>
             </div>
           </div>
         </section>
 
         {/* Blog Grid */}
-        <section
+        <section 
           className="py-16 relative"
           style={{
             backgroundImage: 'url("/background-image.png")',
@@ -113,23 +110,18 @@ export default async function Blog() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post) => (
-                <article
-                  key={post.id}
-                  className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group"
-                >
-                  <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/20 relative overflow-hidden">
+                <article key={post.id} className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+                  <div className="aspect-video bg-primary/10 relative">
                     {post.featuredImage ? (
-                      <img
-                        src={getImageUrl(post.featuredImage)}
+                      <img 
+                        src={post.featuredImage} 
                         alt={post.featuredImageAlt || post.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/15 to-primary/25">
-                        <div className="text-center">
-                          <Beaker className="w-16 h-16 text-primary/60 mx-auto mb-3" />
-                          <div className="text-sm font-medium text-primary/80">Chemical Industry</div>
-                          <div className="text-xs text-primary/60 mt-1">Blog Article</div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-6xl font-display font-bold text-primary/20">
+                          {post.title.charAt(0)}
                         </div>
                       </div>
                     )}
@@ -153,18 +145,13 @@ export default async function Blog() {
                     <h3 className="font-display text-lg font-bold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{post.excerpt}</p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <User className="w-4 h-4" />
                         {post.author}
                       </div>
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="text-primary font-medium text-xs sm:text-sm flex items-center gap-1 hover:gap-2 transition-all"
-                      >
+                      <Link href={`/blog/${post.slug}`} className="text-primary font-medium text-xs sm:text-sm flex items-center gap-1 hover:gap-2 transition-all">
                         <span className="hidden sm:inline">Read More</span>
                         <span className="sm:hidden">Read</span>
                         <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { getImageUrl } from './imageHelper';
 
 export interface WordPressPost {
   id: number;
@@ -164,12 +163,21 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
     
     console.log(`[Image Debug] Post: ${post.title?.rendered}`);
     console.log(`[Image Debug] Featured Media ID: ${post.featured_media}`);
+    console.log(`[Image Debug] Featured Media Object:`, featuredMedia);
     
-    if (featuredMedia) {
+    if (!featuredMedia) {
+      console.warn(`[Image Error] No featured media found for post: ${post.title?.rendered}`);
+    } else {
       // Try different image sizes
-      const largeImage = featuredMedia.media_details?.sizes?.large?.source_url;
-      const mediumImage = featuredMedia.media_details?.sizes?.medium?.source_url;
-      const fullImage = featuredMedia.source_url;
+      const largeImage = featuredMedia?.media_details?.sizes?.large?.source_url;
+      const mediumImage = featuredMedia?.media_details?.sizes?.medium?.source_url;
+      const fullImage = featuredMedia?.source_url;
+      
+      console.log(`[Image Debug] Available sizes:`, {
+        large: largeImage,
+        medium: mediumImage,
+        full: fullImage
+      });
       
       featuredImage = largeImage || mediumImage || fullImage;
       
@@ -193,10 +201,16 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
         }
         
         console.log(`[Image Debug] Final image URL: ${featuredImage}`);
+        
+        // Validate image URL in development
+        if (process.env.NODE_ENV === 'development') {
+          validateImageUrl(featuredImage).then(isValid => {
+            if (!isValid) {
+              console.error(`[Image Error] Featured image URL is not accessible: ${featuredImage}`);
+            }
+          });
+        }
       }
-    } else {
-      // No featured image available
-      featuredImage = undefined;
     }
     
     const featuredImageAlt = featuredMedia?.alt_text || post.title?.rendered || '';
@@ -216,21 +230,41 @@ function transformWordPressPost(post: WordPressPost): BlogPost {
     // Clean excerpt
     const cleanExcerpt = post.excerpt?.rendered?.replace(/<[^>]*>/g, '').replace(/\[&hellip;\]/, '...').trim() || '';
     
-    // Fix content images URLs
+    // Fix content images URLs with error handling
     let cleanContent = post.content?.rendered || '';
     if (cleanContent) {
+      const originalImageMatches = cleanContent.match(/src="[^"]*"/g);
+      console.log(`[Content Images] Found ${originalImageMatches?.length || 0} images in content`);
+      
+      if (originalImageMatches) {
+        console.log(`[Content Images] Original URLs:`, originalImageMatches);
+      }
+      
       // Fix relative image URLs in content
       cleanContent = cleanContent.replace(
         /src="(?!\/\/|http)([^"]*)"/g,
-        (match, url) => `src="${WORDPRESS_BASE_URL}${url.startsWith('/') ? '' : '/'}${url}"`
+        (match, url) => {
+          const fixedUrl = `src="${WORDPRESS_BASE_URL}${url.startsWith('/') ? '' : '/'}${url}"`;
+          console.log(`[Content Images] Fixed: ${match} -> ${fixedUrl}`);
+          return fixedUrl;
+        }
       );
       
       // Convert HTTP to HTTPS only in production
       if (process.env.NODE_ENV === 'production') {
         cleanContent = cleanContent.replace(
           /src="http:\/\/[^"]*"/g,
-          (match) => match.replace('http://', 'https://')
+          (match) => {
+            const httpsUrl = match.replace('http://', 'https://');
+            console.log(`[Content Images] HTTPS: ${match} -> ${httpsUrl}`);
+            return httpsUrl;
+          }
         );
+      }
+      
+      const finalImageMatches = cleanContent.match(/src="[^"]*"/g);
+      if (finalImageMatches) {
+        console.log(`[Content Images] Final URLs:`, finalImageMatches);
       }
     }
     

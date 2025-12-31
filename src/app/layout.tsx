@@ -31,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${roboto.variable}`}>
+      <body className={`${inter.variable} ${roboto.variable}`} suppressHydrationWarning>
         <ReactQueryProvider>
           <TooltipProvider>
             <Toaster />
