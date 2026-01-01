@@ -54,8 +54,8 @@ export interface BlogPost {
   featuredImageAlt?: string;
 }
 
-const API_BASE_URL = process.env.WORDPRESS_API_URL || 'http://cms.wyomingchemical.com/wp-json/wp/v2';
-const WORDPRESS_BASE_URL = process.env.WORDPRESS_BASE_URL || 'http://cms.wyomingchemical.com';
+const API_BASE_URL = process.env.WORDPRESS_API_URL ;
+const WORDPRESS_BASE_URL = process.env.WORDPRESS_BASE_URL;
 
 // Image validation function
 export async function validateImageUrl(url: string): Promise<boolean> {
