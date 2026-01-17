@@ -90,11 +90,11 @@ export default function About() {
                   </span>
                 </div>
                 <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                  Trusted Manufacturer of Sodium Silicates
+                  Trusted supplier of Sodium Silicates
                 </h1>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Founded in 2008, <strong className="text-foreground">Wyoming Chemicals</strong> has evolved into a trusted global manufacturer of 
+                  Founded in 2008, <strong className="text-foreground">Wyoming Chemicals</strong> has evolved into a trusted global supplier of 
                   <strong className="text-foreground"> Sodium Silicates, Specialty Silicates, and Metasilicates</strong>. Backed by decades of expertise, 
                   we serve as a reliable partner to industries worldwide, delivering high-quality chemical raw materials 
                   that consistently meet stringent international standards.

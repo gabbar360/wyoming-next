@@ -52,7 +52,7 @@ export const products: Product[] = [
     id: "sodium-silicate-powder",
     title: "Sodium Silicate Powder - High Quality Industrial Grade",
     shortTitle: "Sodium Silicate Powder",
-    description: "Our company is actively engaged as a manufacturer, exporter, and supplier of a wide range of Sodium Silicate Powder in India. These products are produced using high-quality raw materials and advanced machinery at our factory premises under the close supervision of our highly skilled technical team.",
+    description: "Our company is actively engaged as a supplier, exporter, and supplier of a wide range of Sodium Silicate Powder in India. These products are produced using high-quality raw materials and advanced machinery at our factory premises under the close supervision of our highly skilled technical team.",
     fullDescription: "Sodium Silicate Powder (Na2O·mSiO2), also known as water glass powder, is a versatile inorganic compound manufactured through controlled processes using high-quality raw materials. Available in multiple modulus ratios from low to high, our sodium silicate powder offers exceptional performance across various industrial applications. The product is manufactured under strict quality controls and is available in different grades to meet specific industry requirements.",
     image: "/product/Sodium Silicate Powder.png",
     applications: [

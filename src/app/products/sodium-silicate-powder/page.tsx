@@ -112,7 +112,7 @@ export default function SodiumSilicatePowderPage() {
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">Sodium Silicate Powder</h2>
                 <p className="text-gray-600 mb-6">
-                  Our company is actively engaged as a manufacturer, exporter, and supplier of a wide range of Sodium Silicate Powder in India. These products are produced using high-quality raw materials and advanced machinery at our factory premises under the close supervision of our highly skilled technical team.
+                  Our company is actively engaged as a supplier, exporter, and supplier of a wide range of Sodium Silicate Powder in India. These products are produced using high-quality raw materials and advanced machinery at our factory premises under the close supervision of our highly skilled technical team.
                 </p>
 
                 {/* Technical Datasheet */}

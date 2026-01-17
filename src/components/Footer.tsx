@@ -19,7 +19,7 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <h4 className="font-display font-semibold text-lg sm:text-xl mb-4 sm:mb-6">About Company</h4>
             <p className="text-background/70 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-              Wyoming Chemicals Distribution is a leading manufacturer of Sodium Silicates and Metasilicates, providing reliable solutions to industries across India and around the globe.
+              Wyoming Chemicals Distribution is a leading supplier of Sodium Silicates and Metasilicates, providing reliable solutions to industries across India and around the globe.
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center">

@@ -42,12 +42,12 @@ const AboutSection = () => {
             <div className="mb-6">
               <span className="section-subtitle">About Us</span>
               <h2 className="section-title">
-                Trusted Manufacturer of Sodium Silicates
+                Trusted supplier of Sodium Silicates
               </h2>
             </div>
 
             <p className="text-muted-foreground responsive-text leading-relaxed mb-6">
-              <strong className="text-foreground">Wyoming Chemicals Distribution</strong> specializes in manufacturing a comprehensive range of{" "}
+              <strong className="text-foreground">Wyoming Chemicals Distribution</strong> specializes in supplying a comprehensive range of{" "}
               <strong className="text-foreground">Sodium Silicates</strong>,{" "}
               <strong className="text-foreground">Specialty Silicates</strong>, and{" "}
               <strong className="text-foreground">Metasilicates</strong>.

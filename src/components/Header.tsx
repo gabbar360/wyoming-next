@@ -196,7 +196,7 @@ const Header = () => {
                 <div key={item.name} className="border-b border-border last:border-0">
                   <Link
                     href={item.href}
-                    className="flex items-center justify-between py-3 text-[#F5F5DC] transition-colors font-medium"
+                    className="flex items-center justify-between py-3 text-coffe transition-colors font-medium"
                     onClick={() => !item.dropdown && setIsMenuOpen(false)}
                   >
                     {item.name}
